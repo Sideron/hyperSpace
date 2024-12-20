@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7r7ies8ndmwy"]
+
+[ext_resource type="PackedScene" uid="uid://d1qno5ntg2ks7" path="res://models/obstacle5.glb" id="1_u1x06"]
+[ext_resource type="Script" path="res://scenes/obstacle.gd" id="2_ex0uy"]
+[ext_resource type="Material" uid="uid://5yi4hbecenhi" path="res://Materials/obstacleMat.tres" id="2_i75pj"]
+[ext_resource type="Script" path="res://scenes/obstacleRedir.gd" id="4_w5erw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hfphf"]
+height = 8.47507
+radius = 22.3793
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_spm4e"]
+height = 3.15072
+radius = 23.416
+
+[node name="obstacle5" instance=ExtResource("1_u1x06")]
+script = ExtResource("2_ex0uy")
+
+[node name="Cone" parent="." index="0"]
+transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_i75pj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" groups=["obstacle"]]
+transform = Transform3D(0.567, 0, 0, 0, 0.567, 0, 0, 0, 0.567, 0, 0, 0)
+script = ExtResource("4_w5erw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.533, -2.4359)
+shape = SubResource("CylinderShape3D_hfphf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.6082, -0.867729)
+shape = SubResource("CylinderShape3D_spm4e")

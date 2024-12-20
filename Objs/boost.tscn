@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx7rah2o6gpa1"]
+
+[ext_resource type="Script" path="res://scenes/boost.gd" id="1_0v164"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0gc0u"]
+radius = 0.674954
+
+[sub_resource type="SphereMesh" id="SphereMesh_hepsj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp1ae"]
+albedo_color = Color(0, 0.4, 0.443137, 1)
+emission_enabled = true
+emission = Color(0, 0.584314, 0.862745, 1)
+
+[node name="boost" type="StaticBody3D" groups=["pickable"]]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 0, 0)
+script = ExtResource("1_0v164")
+boostSpeed = 1.5
+seconds = 9.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 0, 0, 0)
+shape = SubResource("SphereShape3D_0gc0u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0, 0)
+mesh = SubResource("SphereMesh_hepsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_bp1ae")

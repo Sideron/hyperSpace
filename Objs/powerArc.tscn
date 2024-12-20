@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://fht87djoclyk"]
+
+[ext_resource type="PackedScene" uid="uid://cph8js2hdswcy" path="res://models/arc2.glb" id="1_ujqyl"]
+[ext_resource type="Texture2D" uid="uid://dqyvojb8kq0q7" path="res://images/portal.png" id="3_v101i"]
+[ext_resource type="Script" path="res://Objs/powerColl.gd" id="4_ah1m8"]
+[ext_resource type="Script" path="res://scenes/obstacleRedir.gd" id="4_lwwfy"]
+[ext_resource type="Script" path="res://Objs/powerRedir.gd" id="5_mn3vp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5krmi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ple16"]
+size = Vector3(0.613861, 2.18752, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o0s85"]
+height = 1.80481
+radius = 4.45869
+
+[node name="powerArc" instance=ExtResource("1_ujqyl")]
+script = ExtResource("4_ah1m8")
+speedColor = Color(0, 0.87451, 0.952941, 1)
+shieldColor = Color(0.484635, 0.97918, 1.15514e-06, 1)
+speed_chance = 70
+
+[node name="Cylinder_001" parent="." index="0"]
+transform = Transform3D(1.91062e-15, -3.55414e-08, -0.999965, -0.999965, -3.55414e-08, 0, -4.37099e-08, 0.813093, -4.37099e-08, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_5krmi")
+
+[node name="border" type="StaticBody3D" parent="." index="1" groups=["obstacle"]]
+script = ExtResource("4_lwwfy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="border" index="0"]
+transform = Transform3D(0.892476, -0.451096, 0, 0.451096, 0.892476, 0, 0, 0, 1, -4.72897, -3.36122, 0)
+shape = SubResource("BoxShape3D_ple16")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="border" index="1"]
+transform = Transform3D(0.892586, 0.450878, 0, -0.450878, 0.892586, 0, 0, 0, 1, 4.729, -3.361, 0)
+shape = SubResource("BoxShape3D_ple16")
+
+[node name="portal" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.18873, 0)
+modulate = Color(0.490196, 1, 0.32549, 1)
+pixel_size = 0.0185
+texture = ExtResource("3_v101i")
+
+[node name="powerColl" type="StaticBody3D" parent="." index="3" groups=["pickable"]]
+script = ExtResource("5_mn3vp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="powerColl" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.17585, 0)
+shape = SubResource("CylinderShape3D_o0s85")

@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6jqbcmtlmrl5"]
+
+[ext_resource type="PackedScene" uid="uid://bfvi888jw0prv" path="res://models/windmill.glb" id="1_kw1qb"]
+[ext_resource type="Script" path="res://scenes/obstacle.gd" id="2_8ao6s"]
+[ext_resource type="Material" uid="uid://104hlysmtkqa" path="res://Materials/windmill.tres" id="3_7b3v4"]
+[ext_resource type="Script" path="res://scenes/obstacleRedir.gd" id="4_3ar68"]
+[ext_resource type="Script" path="res://Objs/playAnim.gd" id="4_4cjkt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iric4"]
+size = Vector3(67.855, 1.19434, 3.23291)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prrf5"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ieix8"]
+_surfaces = [{
+"aabb": AABB(-33.8919, -1, -1.62745, 67.7838, 1.00136e-05, 3.25492),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray(6, 0, 10, 0, 5, 0, 6, 0, 11, 0, 10, 0, 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 2, 0, 8, 0, 1, 0, 2, 0, 9, 0, 8, 0, 7, 0, 5, 0, 4, 0, 7, 0, 6, 0, 5, 0, 0, 0, 4, 0, 3, 0, 0, 0, 7, 0, 4, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(226, 132, 0, 0, 210, 77, 0, 0, 40, 151, 0, 0, 0, 0, 0, 0, 40, 151, 134, 1, 254, 255, 0, 0, 226, 132, 0, 0, 44, 178, 0, 0, 28, 123, 0, 0, 44, 178, 0, 0, 214, 104, 134, 1, 254, 255, 0, 0, 214, 104, 0, 0, 0, 0, 0, 0, 28, 123, 0, 0, 210, 77, 0, 0, 245, 230, 0, 0, 0, 0, 0, 0, 255, 255, 134, 1, 254, 255, 0, 0, 9, 25, 134, 1, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lq1cv"]
+resource_name = "windmill_Cylinder_001"
+_surfaces = [{
+"aabb": AABB(-33.8919, -1, -1.62745, 67.7838, 1.00136e-05, 3.25492),
+"attribute_data": PackedByteArray(28, 228, 74, 142, 28, 228, 74, 142, 109, 250, 2, 173, 109, 250, 2, 173, 109, 250, 251, 210, 109, 250, 251, 210, 28, 228, 179, 241, 28, 228, 179, 241, 226, 155, 179, 241, 226, 155, 179, 241, 144, 133, 251, 210, 144, 133, 251, 210, 144, 133, 2, 173, 144, 133, 2, 173, 226, 155, 74, 142, 226, 155, 74, 142, 109, 250, 2, 173, 109, 250, 251, 210, 144, 133, 251, 210, 144, 133, 2, 173),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray(13, 0, 18, 0, 11, 0, 13, 0, 19, 0, 18, 0, 1, 0, 5, 0, 3, 0, 1, 0, 7, 0, 5, 0, 4, 0, 16, 0, 2, 0, 4, 0, 17, 0, 16, 0, 15, 0, 10, 0, 9, 0, 15, 0, 12, 0, 10, 0, 0, 0, 8, 0, 6, 0, 0, 0, 14, 0, 8, 0),
+"material": SubResource("StandardMaterial3D_prrf5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray(226, 132, 0, 0, 210, 77, 255, 63, 226, 132, 0, 0, 210, 77, 250, 63, 40, 151, 0, 0, 0, 0, 255, 63, 40, 151, 0, 0, 0, 0, 237, 59, 40, 151, 134, 1, 254, 255, 255, 63, 40, 151, 134, 1, 254, 255, 138, 61, 226, 132, 0, 0, 44, 178, 255, 63, 226, 132, 0, 0, 44, 178, 54, 63, 28, 123, 0, 0, 44, 178, 255, 63, 28, 123, 0, 0, 44, 178, 54, 63, 214, 104, 134, 1, 254, 255, 138, 61, 214, 104, 134, 1, 254, 255, 255, 63, 214, 104, 0, 0, 0, 0, 237, 59, 214, 104, 0, 0, 0, 0, 255, 63, 28, 123, 0, 0, 210, 77, 255, 63, 28, 123, 0, 0, 210, 77, 250, 63, 245, 230, 0, 0, 0, 0, 255, 63, 255, 255, 134, 1, 254, 255, 255, 63, 9, 25, 134, 1, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 0, 0, 255, 127, 126, 5, 64, 125, 0, 0, 255, 127, 40, 51, 107, 102, 0, 0, 255, 127, 12, 43, 121, 106, 0, 0, 255, 127, 3, 14, 7, 156, 0, 0, 255, 127, 7, 28, 251, 113, 134, 21, 12, 171, 0, 0, 255, 127, 148, 25, 40, 179, 0, 0, 255, 127, 0, 0, 255, 127, 191, 2, 125, 133, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ieix8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpvlg"]
+size = Vector3(1, 33.1472, 4.69922)
+
+[sub_resource type="Animation" id="Animation_80xs0"]
+resource_name = "spin"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mill")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.707107, 0, 0, 0.707107, 2.5, 1, 3.09086e-08, 0.707107, 0.707107, -3.09086e-08)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7t78k"]
+_data = {
+"spin": SubResource("Animation_80xs0")
+}
+
+[node name="windmill" instance=ExtResource("1_kw1qb")]
+script = ExtResource("2_8ao6s")
+
+[node name="mill" parent="." index="0"]
+transform = Transform3D(0.903174, 0, 0, 0, -4.37114e-08, -1.33075, 0, 1, -5.81689e-08, 0, 33.0273, 0.392511)
+surface_material_override/0 = ExtResource("3_7b3v4")
+script = ExtResource("4_3ar68")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="mill" index="0" groups=["obstacle"]]
+transform = Transform3D(0.997967, 0, 0, 0, 0.997967, 0, 0, 3.55271e-15, 0.997967, 0, 0, 0)
+script = ExtResource("4_3ar68")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mill/StaticBody3D" index="0"]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999995, 7.81597e-14, 0, 7.4607e-14, 0.999997, -0.109, -1.05064, 0)
+shape = SubResource("BoxShape3D_iric4")
+
+[node name="mill2" type="MeshInstance3D" parent="mill" index="1"]
+transform = Transform3D(-2.96667e-08, 4.83975e-08, 1.47341, 0, 1, -5.81689e-08, -0.678695, 0, -2.96667e-08, 0, 0, 0)
+mesh = SubResource("ArrayMesh_lq1cv")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_7b3v4")
+script = ExtResource("4_3ar68")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="mill/mill2" index="0" groups=["obstacle"]]
+transform = Transform3D(0.997967, 0, 0, 0, 0.997967, 0, 0, 3.55271e-15, 0.997967, 0, 0, 0)
+script = ExtResource("4_3ar68")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mill/mill2/StaticBody3D" index="0"]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999995, 7.81597e-14, 0, 7.4607e-14, 0.999997, -0.109, -1.05064, 0)
+shape = SubResource("BoxShape3D_iric4")
+
+[node name="body" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00119781, 0.0690079, -0.0122375)
+surface_material_override/0 = ExtResource("3_7b3v4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" groups=["obstacle"]]
+script = ExtResource("4_3ar68")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(0.975385, -0.22051, 0, 0.22051, 0.975385, 0, 0, 0, 1, 5.03967, 13.9804, 2.68779)
+shape = SubResource("BoxShape3D_rpvlg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(0.975535, 0.219846, 0, -0.219846, 0.975535, 0, 0, 0, 1, -5.04, 13.98, 2.688)
+shape = SubResource("BoxShape3D_rpvlg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_7t78k")
+}
+script = ExtResource("4_4cjkt")
+nameAnim = "spin"

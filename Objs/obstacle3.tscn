@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccbmvjfsvbxaq"]
+
+[ext_resource type="PackedScene" uid="uid://csm2xfacr4wvu" path="res://models/obstacle3.glb" id="1_owsba"]
+[ext_resource type="Material" uid="uid://5yi4hbecenhi" path="res://Materials/obstacleMat.tres" id="2_dfie2"]
+[ext_resource type="Script" path="res://scenes/obstacle.gd" id="2_vk5km"]
+[ext_resource type="Script" path="res://scenes/obstacleRedir.gd" id="4_s1arp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rf5uw"]
+height = 2.09112
+radius = 1.1318
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4pq48"]
+height = 1.91852
+radius = 0.917933
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7n45q"]
+height = 1.78048
+radius = 0.766248
+
+[node name="obstacle3" groups=["obstacle"] instance=ExtResource("1_owsba")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.00186348, -4.76837e-07, 0.0273685)
+script = ExtResource("2_vk5km")
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.258318, 0, -0.12566)
+surface_material_override/0 = ExtResource("2_dfie2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" groups=["obstacle"]]
+script = ExtResource("4_s1arp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0408018, -0.0701172, 0.122893)
+shape = SubResource("CylinderShape3D_rf5uw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12788, 0)
+shape = SubResource("CylinderShape3D_4pq48")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.171721, 2.37822, 0)
+shape = SubResource("CylinderShape3D_7n45q")

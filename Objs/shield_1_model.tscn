@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://de4w2v8m626rt"]
+
+[ext_resource type="PackedScene" uid="uid://bau6awksmm4gt" path="res://models/shield1.glb" id="1_r2i3l"]
+[ext_resource type="Script" path="res://scenes/modelController.gd" id="2_epnxm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0o4k5"]
+transparency = 1
+cull_mode = 1
+albedo_color = Color(0.454902, 0.835294, 1, 0)
+emission_enabled = true
+emission = Color(0, 0.741176, 0.827451, 1)
+
+[node name="shield1" node_paths=PackedStringArray("model") instance=ExtResource("1_r2i3l")]
+script = ExtResource("2_epnxm")
+model = NodePath("Sphere_001")
+time_change = 2.0
+target_a = 118.0
+
+[node name="Sphere_001" parent="." index="0"]
+transform = Transform3D(0.9, 0, 0, 0, 1.1, 0, 0, 0, 0.9, -0.0064826, 0.00286353, -0.0351024)
+surface_material_override/0 = SubResource("StandardMaterial3D_0o4k5")
