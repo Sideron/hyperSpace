@@ -9,6 +9,8 @@ extends Node3D
 @onready var disText: Label = $"../UIcanvas/Distance";
 @onready var shield = $shield;
 @onready var shadow: Sprite3D = $shadow;
+@onready var camera: Camera3D = $Camera3D
+var bikeRot: float = 0
 var shieldOn = false;
 var distance = 0;
 var rigthSpeed = 0;
@@ -18,6 +20,7 @@ var leftSpeed = 0;
 var floatingCons = 0;
 var startHeigth: float;
 var shadowA: float;
+const cameraExtremes:float = 1.6
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.mainSpeed = vspeed;
@@ -32,12 +35,17 @@ func _process(delta):
 	position.x+= resultingSpeed*delta;
 	
 	if(Input.is_action_pressed("derecha") || Input.is_action_pressed("izquierda")):
-		var derCons = Global.mainSpeed * (0.2 if Input.is_action_pressed("derecha") else 0);
-		var izqCons = Global.mainSpeed * (0.2 if Input.is_action_pressed("izquierda") else 0);
+		var derCons = Global.mainSpeed * (0.1 if Input.is_action_pressed("derecha") else 0);
+		var izqCons = Global.mainSpeed * (0.1 if Input.is_action_pressed("izquierda") else 0);
+		camera.pos = - (cameraExtremes * 1 if Input.is_action_pressed("izquierda") else 0) + (cameraExtremes * 1 if Input.is_action_pressed("derecha") else 0)
+		bikeRot = (0.6 * 1 if Input.is_action_pressed("izquierda") else 0) - (0.6 * 1 if Input.is_action_pressed("derecha") else 0)
 		vspeed = Global.mainSpeed - derCons - izqCons;
+		bikeModel.rotation.z = lerp(bikeModel.rotation.z,bikeRot,delta)
 	else:
+		bikeRot = 0
 		vspeed = Global.mainSpeed;
-	
+		bikeModel.rotation.z = lerp(bikeModel.rotation.z,bikeRot,2*delta)
+		
 	Global.speed = Global._lerp_floats(Global.speed,vspeed,lerpVSpeed *delta)
 	
 	distance += (Global.speed/60)*delta

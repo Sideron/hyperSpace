@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://72kavi8w3mp0"
-path.s3tc="res://.godot/imported/smoke_09.png-9c7fb7501e705ca198c71af074f4ee26.s3tc.ctex"
-path.etc2="res://.godot/imported/smoke_09.png-9c7fb7501e705ca198c71af074f4ee26.etc2.ctex"
+uid="uid://bn7hmrcklpmoy"
+path.s3tc="res://.godot/imported/smoke_04_alter.png-a0da67c0be40488308c2c8927bb39147.s3tc.ctex"
+path.etc2="res://.godot/imported/smoke_04_alter.png-a0da67c0be40488308c2c8927bb39147.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://images/sandParticles/smoke_09.png"
-dest_files=["res://.godot/imported/smoke_09.png-9c7fb7501e705ca198c71af074f4ee26.s3tc.ctex", "res://.godot/imported/smoke_09.png-9c7fb7501e705ca198c71af074f4ee26.etc2.ctex"]
+source_file="res://images/sandParticles/smoke_04_alter.png"
+dest_files=["res://.godot/imported/smoke_04_alter.png-a0da67c0be40488308c2c8927bb39147.s3tc.ctex", "res://.godot/imported/smoke_04_alter.png-a0da67c0be40488308c2c8927bb39147.etc2.ctex"]
 
 [params]
 

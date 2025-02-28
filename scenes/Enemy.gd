@@ -36,7 +36,7 @@ func _process(delta):
 	else:
 		hVelocity = Global._lerp_floats(hVelocity,0,delta)
 		targetVeloc = maxVeloc;
-		print("CENTER")
+		#print("CENTER")
 	
 	position.x += hVelocity*delta;
 	velocity = Global._lerp_floats(velocity,targetVeloc,1.1*delta);
