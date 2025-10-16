@@ -1,23 +1,22 @@
-[gd_scene load_steps=37 format=3 uid="uid://cweoljrgl66pe"]
+[gd_scene load_steps=36 format=3 uid="uid://cweoljrgl66pe"]
 
-[ext_resource type="Script" path="res://scenes/spawnManager.gd" id="1_se8ht"]
-[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_bgx76"]
-[ext_resource type="Texture2D" uid="uid://b1vd0xh337lox" path="res://images/sandParticles/smoke_08.png" id="4_87hr3"]
-[ext_resource type="Script" path="res://scenes/Player.gd" id="4_h1abc"]
+[ext_resource type="Script" uid="uid://biy2rt65uge2s" path="res://scenes/spawnManager.gd" id="1_se8ht"]
+[ext_resource type="Script" uid="uid://bsmhqlrad0uxx" path="res://scenes/Camera3D.gd" id="2_bgx76"]
+[ext_resource type="Script" uid="uid://br2olyoxkcqg6" path="res://scenes/Player.gd" id="4_h1abc"]
 [ext_resource type="Texture2D" uid="uid://bcqho36ola7id" path="res://images/shadow.png" id="5_5c00h"]
 [ext_resource type="Texture2D" uid="uid://bk7fya5asuuho" path="res://images/shield1.png" id="5_mfhfm"]
-[ext_resource type="Script" path="res://scenes/spriteController.gd" id="6_7q24k"]
+[ext_resource type="Script" uid="uid://ds3ltncg0xvwp" path="res://scenes/spriteController.gd" id="6_7q24k"]
 [ext_resource type="PackedScene" uid="uid://na3q31b8orsx" path="res://models/bike.fbx" id="6_wblsv"]
-[ext_resource type="Script" path="res://scenes/loseCheck.gd" id="6_yxfp1"]
-[ext_resource type="Script" path="res://scenes/collisionDetector.gd" id="7_hvvf1"]
-[ext_resource type="Script" path="res://scenes/UIcanvas.gd" id="8_s61oi"]
-[ext_resource type="Script" path="res://scenes/obstacleRedir.gd" id="9_apla3"]
-[ext_resource type="Script" path="res://scenes/Enemy.gd" id="9_rpaud"]
-[ext_resource type="Script" path="res://scenes/collCheck.gd" id="11_0lpph"]
+[ext_resource type="Script" uid="uid://bl1owcw6htlt2" path="res://scenes/loseCheck.gd" id="6_yxfp1"]
+[ext_resource type="Script" uid="uid://dswounr70amv2" path="res://scenes/collisionDetector.gd" id="7_hvvf1"]
+[ext_resource type="Script" uid="uid://cf7finujuf4ie" path="res://scenes/UIcanvas.gd" id="8_s61oi"]
+[ext_resource type="Script" uid="uid://yhuhcq28uwm" path="res://scenes/obstacleRedir.gd" id="9_apla3"]
+[ext_resource type="Script" uid="uid://dslxh6a4sxj6u" path="res://scenes/Enemy.gd" id="9_rpaud"]
+[ext_resource type="Script" uid="uid://ignrfijmmgtf" path="res://scenes/collCheck.gd" id="11_0lpph"]
 [ext_resource type="PackedScene" uid="uid://c6jqbcmtlmrl5" path="res://Objs/windmill.tscn" id="13_vc0fv"]
 
 [sub_resource type="Curve" id="Curve_gakv1"]
-_data = [Vector2(0, 0), 0.0, 0.327545, 0, 0, Vector2(1, 1), 1.64771, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.15522644, 0, 0, Vector2(1, 1), 1.9583703, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_367ev"]
@@ -33,16 +32,16 @@ initial_velocity_max = 3.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = 10.0
 linear_accel_max = 10.0
-scale_max = 5.0
 scale_curve = SubResource("CurveTexture_367ev")
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5pcs1"]
 transparency = 1
 depth_draw_mode = 2
 shading_mode = 0
-albedo_color = Color(0.781163, 0.629535, 0.227392, 1)
-albedo_texture = ExtResource("4_87hr3")
+albedo_color = Color(0.789469, 0.6114724, 0.45204264, 1)
+albedo_texture = ExtResource("5_mfhfm")
 albedo_texture_msdf = true
+billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_eylfd"]
 material = SubResource("ORMMaterial3D_5pcs1")
@@ -125,8 +124,9 @@ texture = ExtResource("5_5c00h")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.939721, -0.623073)
-amount = 10
+amount = 12
 lifetime = 0.85
+speed_scale = 2.0
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_a1hpv")
 draw_pass_1 = SubResource("QuadMesh_eylfd")
