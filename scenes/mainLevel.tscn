@@ -15,16 +15,16 @@
 [ext_resource type="Script" uid="uid://ignrfijmmgtf" path="res://scenes/collCheck.gd" id="11_0lpph"]
 [ext_resource type="PackedScene" uid="uid://c6jqbcmtlmrl5" path="res://Objs/windmill.tscn" id="13_vc0fv"]
 
-[sub_resource type="Curve" id="Curve_gakv1"]
-_data = [Vector2(0, 0), 0.0, 0.15522644, 0, 0, Vector2(1, 1), 1.9583703, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_3fbga"]
+_data = [Vector2(0, 0.12411356), 0.0, 0.08301423, 0, 0, Vector2(0.75563914, 1), 3.7689636, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_367ev"]
-curve = SubResource("Curve_gakv1")
+curve = SubResource("Curve_3fbga")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a1hpv"]
 emission_shape = 1
-emission_sphere_radius = 0.5
+emission_sphere_radius = 0.2
 direction = Vector3(0, 0, 0)
 spread = 5.0
 initial_velocity_min = 2.0
@@ -32,16 +32,25 @@ initial_velocity_max = 3.0
 gravity = Vector3(0, 0, 0)
 linear_accel_min = 10.0
 linear_accel_max = 10.0
+scale_min = 0.5
+scale_max = 2.0
 scale_curve = SubResource("CurveTexture_367ev")
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 10.0
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5pcs1"]
 transparency = 1
 depth_draw_mode = 2
 shading_mode = 0
+diffuse_mode = 3
+disable_ambient_light = true
 albedo_color = Color(0.789469, 0.6114724, 0.45204264, 1)
 albedo_texture = ExtResource("5_mfhfm")
 albedo_texture_msdf = true
 billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+proximity_fade_distance = 1.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_eylfd"]
 material = SubResource("ORMMaterial3D_5pcs1")
@@ -250,6 +259,15 @@ script = ExtResource("11_0lpph")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy/collCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.275386, 0)
 shape = SubResource("BoxShape3D_d2lqg")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94, -0.623)
+amount = 12
+lifetime = 0.85
+speed_scale = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_a1hpv")
+draw_pass_1 = SubResource("QuadMesh_eylfd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.997927, 0.0170614, 0.0620496, -0.0643404, 0.245863, 0.967167, 0.00124551, -0.969154, 0.246451, 0, 2.00258, -0.058794)
