@@ -21,6 +21,9 @@ func _process(delta):
 		remaining = meters;
 	
 	#print(Engine.get_frames_per_second())
+	
+func create_obstacle(new_node: Node):
+	add_sibling(new_node)
 
 func _spawn_node():
 	# Instancia un nuevo Node3D en una posición aleatoria

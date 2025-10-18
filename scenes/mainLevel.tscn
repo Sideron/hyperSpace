@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cweoljrgl66pe"]
+[gd_scene load_steps=38 format=3 uid="uid://cweoljrgl66pe"]
 
 [ext_resource type="Script" uid="uid://biy2rt65uge2s" path="res://scenes/spawnManager.gd" id="1_se8ht"]
+[ext_resource type="Material" uid="uid://5yi4hbecenhi" path="res://Materials/obstacleMat.tres" id="2_a2n34"]
 [ext_resource type="Script" uid="uid://bsmhqlrad0uxx" path="res://scenes/Camera3D.gd" id="2_bgx76"]
+[ext_resource type="Script" uid="uid://bedgkmucvqrva" path="res://scenes/obstacle.gd" id="2_d80rj"]
 [ext_resource type="Script" uid="uid://br2olyoxkcqg6" path="res://scenes/Player.gd" id="4_h1abc"]
 [ext_resource type="Texture2D" uid="uid://bcqho36ola7id" path="res://images/shadow.png" id="5_5c00h"]
 [ext_resource type="Texture2D" uid="uid://bk7fya5asuuho" path="res://images/shield1.png" id="5_mfhfm"]
@@ -117,6 +119,13 @@ range = 260.0
 meters = 0.07
 speedCoef = 0.001
 
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(901.0648, 0, 0, 0, -4.3711393e-06, -441.92877, 0, 100.000015, -1.931732e-05, -604.49243, 145.90309, -3607.9536)
+size = Vector3(1.1035767, 7.623047, 1.7319336)
+material = ExtResource("2_a2n34")
+script = ExtResource("2_d80rj")
+death_distance = 100
+
 [node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("bikeModel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0420227, -1.17459, -5.38901)
 script = ExtResource("4_h1abc")
@@ -132,8 +141,8 @@ modulate = Color(0, 0, 0, 0.74902)
 texture = ExtResource("5_5c00h")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.939721, -0.623073)
-amount = 12
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.81941545, -0.6230731)
+amount = 18
 lifetime = 0.85
 speed_scale = 2.0
 local_coords = true
@@ -198,7 +207,7 @@ skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_nwxde")
 
 [node name="sky" type="MeshInstance3D" parent="Player/Camera3D"]
-transform = Transform3D(10000, 0, 0, 0, -0.000437114, -10000, 0, 10000, -0.000437114, 0, 0, -1637.19)
+transform = Transform3D(10000, 0, 0, 0, -0.000437114, -10000, 0, 10000, -0.000437114, 0, 0, -3866.9624)
 mesh = SubResource("PlaneMesh_3qkgj")
 
 [node name="Enemy" type="Node3D" parent="."]
@@ -262,7 +271,7 @@ shape = SubResource("BoxShape3D_d2lqg")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="Enemy"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94, -0.623)
-amount = 12
+amount = 18
 lifetime = 0.85
 speed_scale = 2.0
 local_coords = true
