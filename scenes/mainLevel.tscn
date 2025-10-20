@@ -124,7 +124,7 @@ transform = Transform3D(901.0648, 0, 0, 0, -4.3711393e-06, -441.92877, 0, 100.00
 size = Vector3(1.1035767, 7.623047, 1.7319336)
 material = ExtResource("2_a2n34")
 script = ExtResource("2_d80rj")
-death_distance = 100
+death_distance = 400
 
 [node name="Player" type="Node3D" parent="." node_paths=PackedStringArray("bikeModel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0420227, -1.17459, -5.38901)
@@ -192,9 +192,9 @@ transform = Transform3D(0.995054, 0, 0, 0, -4.34952e-08, -0.995054, 0, 0.995054,
 shape = SubResource("CylinderShape3D_22om5")
 
 [node name="Camera3D" type="Camera3D" parent="Player" node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0420227, 1.17459, 5.38901)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.175, 5.389)
 current = true
-fov = 77.5518
+fov = 77.5
 near = 0.005
 script = ExtResource("2_bgx76")
 player = NodePath("..")
